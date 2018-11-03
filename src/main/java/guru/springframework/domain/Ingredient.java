@@ -4,23 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-/**
- * Created by jt on 6/13/17.
- */
-@Entity
 @Getter
 @Setter
-public class Notes {
+@Entity
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String description;
+    private BigDecimal amount;
 
-    @OneToOne
+    @ManyToOne
     private Recipe recipe;
 
-    @Lob
-    private String recipeNotes;
-
-    }
+}
